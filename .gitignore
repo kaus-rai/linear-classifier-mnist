@@ -1,3 +1,6 @@
 ./venv
 
 .idea/
+
+#Removing the DS_store
+.DS_Store
