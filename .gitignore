@@ -4,3 +4,6 @@
 
 #Removing the DS_store
 .DS_Store
+
+#PyCache
+__pycache__/
