@@ -9,4 +9,8 @@ MNIST dataset is a handwritten digits dataset. Know more and download dataset fr
 ### Apple M1 Chip
 1. Installation of Tensorflow
     Documentation Used : https://medium.com/gft-engineering/macbook-m1-tensorflow-on-jupyter-notebooks-6171e1f48060
-2. 
+
+## References
+1. https://www.easy-tensorflow.com/tf-tutorials/linear-models/linear-classifier
+2. https://teaching.pages.centralesupelec.fr/deeplearning-lectures-build/00-keras-mnist.html
+3. https://github.com/conda-forge/miniforge
