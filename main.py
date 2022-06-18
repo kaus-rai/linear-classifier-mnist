@@ -3,6 +3,7 @@ import numpy as np
 # import matplotlib.pyplot as plt
 from datasetHelper import loadDataset
 
+
 #defining the dimensions of the dataset images
 #MNIST dataset are 28X28
 img_h, img_w = 28, 28

@@ -1,10 +1,25 @@
 import tensorflow as tf
 import numpy as np
+from sklearn.preprocessing import OneHotEncoder
 
 #Loading the MNIST dataset
 def loadDataset(mode='train', flatten_size=0):
+    hotEncoderObj = OneHotEncoder()
     mnistDataset = tf.keras.datasets.mnist
     (x_train_val, y_train_val), (x_test, y_test) = mnistDataset.load_data()
+
+    #Reshaping the class data
+    y_train_val = y_train_val.reshape(-1, 1)
+    y_test = y_test.reshape(-1, 1)
+
+    # Fit and transform training data
+    hotEncoderObj.fit(y_train_val)
+    y_train_val = hotEncoderObj.transform(y_train_val).toarray()
+
+    # Fit and transform testing data
+    hotEncoderObj.fit(y_test)
+    y_test = hotEncoderObj.transform(y_test).toarray()
+
     if mode == 'train':
         #Dividing the Dataset into training and validation set
         x_train, y_train =  x_train_val[:55000], y_train_val[:55000]

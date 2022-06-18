@@ -14,3 +14,4 @@ MNIST dataset is a handwritten digits dataset. Know more and download dataset fr
 1. https://www.easy-tensorflow.com/tf-tutorials/linear-models/linear-classifier
 2. https://teaching.pages.centralesupelec.fr/deeplearning-lectures-build/00-keras-mnist.html
 3. https://github.com/conda-forge/miniforge
+4. One Hot Encoding : https://github.com/christianversloot/machine-learning-articles/blob/main/one-hot-encoding-for-machine-learning-with-python-and-scikit-learn.md
