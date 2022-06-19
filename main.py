@@ -1,8 +1,9 @@
 import tensorflow as tf
 import numpy as np
 # import matplotlib.pyplot as plt
-from datasetHelper import loadDataset
+from datasetHelper import loadDataset, getNextBatch
 from modelHelper import weight_variable, bias_variable
+from sklearn.utils import shuffle
 
 tf.compat.v1.disable_eager_execution()
 #defining the dimensions of the dataset images
@@ -56,6 +57,41 @@ var_init = tf.compat.v1.global_variables_initializer()
 #Creating the interactive session to train the model
 sess = tf.compat.v1.InteractiveSession()
 sess.run(var_init)
+
+iter_size = int(len(y_train)/batch_size)
+
+for epoch in range(epochs):
+    print("Training Epochs : ", (epoch+1))
+    X_train, y_train = shuffle(X_train, y_train, random_state=0)
+    
+    for iteration in range(iter_size):
+        start = iteration*batch_size
+        end = (iteration+1)*batch_size
+        X_batch, y_batch = getNextBatch(X_train, y_train, start, end)
+
+        dict_batch = {
+            x : X_batch,
+            y : y_batch
+        }
+
+        sess.run(optimizer, feed_dict=dict_batch)
+
+        if(iteration%display_freq == 0):
+            loss_batch, acc_batch = sess.run([loss, accuracy], feed_dict=dict_batch)
+            print("iter {0:3d}:\t Loss={1:.2f},\tTraining Accuracy={2:.01%}".format(iteration, loss_batch, acc_batch))
+
+    #Running Validation on every epoch
+    feed_dict_valid = {
+        x : X_validation[:1000],
+        y : y_validation[:1000],
+    }
+
+    loss_valid, acc_valid = sess.run([loss, accuracy], feed_dict=feed_dict_valid)
+    print('---------------------------------------------------------')
+    print("Epoch: {0}, validation loss: {1:.2f}, validation accuracy: {2:.01%}".
+          format(epoch + 1, loss_valid, acc_valid))
+    print('---------------------------------------------------------')
+
 
 
 

@@ -42,3 +42,9 @@ def randomize(parameter, labels):
     shuffled_labels = parameter[permutations]
 
     return shuffled_para, shuffled_labels
+
+def getNextBatch(para, label, start, end):
+    X_batch = para[start: end]
+    y_batch = label[start : end]
+
+    return X_batch, y_batch
