@@ -2,6 +2,7 @@ import tensorflow as tf
 import numpy as np
 # import matplotlib.pyplot as plt
 from datasetHelper import loadDataset
+from modelHelper import weight_variable, bias_variable
 
 
 #defining the dimensions of the dataset images
@@ -26,6 +27,16 @@ print('x_train:\t{}'.format(X_train.shape))
 print('y_train:\t{}'.format(y_train.shape))
 print('x_validation:\t{}'.format(X_validation.shape))
 print('y_validation:\t{}'.format(y_validation.shape))
+
+#Creating the tensor Placeholders
+x = tf.compat.v1.placeholder(tf.float32, shape=[None, img_flatten], name='X')
+y = tf.compat.v1.placeholder(tf.float32, shape=[None, classes], name='Y')
+
+#Weight initialized randomly
+W = weight_variable(shape=[img_flatten, classes])
+b = bias_variable(shape=[classes])
+
+logits = tf.linalg.matmul(x, W) + b
 
 
 
