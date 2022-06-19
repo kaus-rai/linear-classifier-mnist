@@ -1,6 +1,4 @@
 import tensorflow as tf
-import numpy as np
-# import matplotlib.pyplot as plt
 from datasetHelper import loadDataset, getNextBatch
 from modelHelper import weight_variable, bias_variable
 from sklearn.utils import shuffle
@@ -15,7 +13,6 @@ img_flatten = img_h*img_w
 
 #Defining the number of classes
 classes = 10
-
 epochs = 10             # Total number of training epochs
 batch_size = 100        # Training batch size
 display_freq = 100      # Frequency of displaying the training results

@@ -4,6 +4,10 @@ Performing Linear Classification on MNIST Dataset
 ## Dataset
 MNIST dataset is a handwritten digits dataset. Know more and download dataset from <a href='http://yann.lecun.com/exdb/mnist/'> here</a>
 
+## Result
+Test Accuracy <br>
+loss: 3.43, test accuracy: 85.1%
+
 
 ## Issues
 ### Apple M1 Chip
