@@ -93,6 +93,18 @@ for epoch in range(epochs):
     print('---------------------------------------------------------')
 
 
+#Accuracy on Test Set
+print('---------------------------------------------------------')
+print('Checking the accuracy on Test Set')
+feed_dict_test = {
+        x : X_test[:1000],
+        y : y_test[:1000],
+    }
+loss_test, acc_test = sess.run([loss,accuracy], feed_dict=feed_dict_test)
+print('---------------------------------------------------------')
+print("Test loss: {0:.2f}, test accuracy: {1:.01%}".format(loss_test, acc_test))
+print('---------------------------------------------------------')
+
 
 
 
